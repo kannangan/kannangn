@@ -1,0 +1,30 @@
+<h1 mat-dialog-title> Edit Existing Patient:</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" class="example-form" style="height: 400px;">
+    <mat-form-field style="width:50%">
+        <div style="color:red;" *ngIf="form.get('firstname').hasError('pattern')">Detected some invalid characters</div>
+      <input formControlName="firstname" name="firstName" matInput placeholder="First Name">
+    </mat-form-field>
+    <mat-form-field style="width:50%">
+        <div style="color:red;" *ngIf="form.get('lastname').hasError('pattern')">Detected some invalid characters</div>
+      <input formControlName="lastname" name="lastName" matInput placeholder="Last Name">
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="checked" formControlName="examined" name="examined" labelPosition="before">Check if patient has been examined:</mat-checkbox>
+    <mat-form-field style="width:100%" *ngIf="checked">
+        <input matInput formControlName="examinedOn" [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <mat-form-field style="width:100%">
+      <input formControlName="contact" name="contact" matInput placeholder="contact">
+    </mat-form-field>
+    <div style="color:coral;">A note is necessary to edit a patient.</div>
+    <mat-form-field style="width:100%;">
+      <input formControlName="notes" name="notes" matInput placeholder="Add an Edit Note Here">
+    </mat-form-field>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button [disabled]="!form.valid" mat-button (click)="onEdit(form.value)" [mat-dialog-close]>Edit</button>
+      </div>
+  </form>
+</div>

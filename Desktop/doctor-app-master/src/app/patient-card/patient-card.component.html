@@ -1,0 +1,21 @@
+<div class="mat-app-background">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>{{patient.firstname}} {{patient.lastname}}</mat-card-title>
+
+
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <b>Contact: {{patient.contact}}</b>
+          <p class = "notes">
+              {{patient.notes}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <app-edit-patient [cp]="patient"></app-edit-patient>
+          <button (click)="onDelete(patient)" style="color:red"mat-button>Delete</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

@@ -1,0 +1,57 @@
+  <img class="top" src="../../assets/images/nyancat.gif" alt="Photo of nyancat">
+  <h2 style="font-family: 'Courier New', Courier, monospace">Step by step tutorial on how to use Doctor-app:</h2>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel>Keep Track of Patient Data</ng-template>
+        <div>
+            <p>When you open the application, you will see records of patients. Those are patients that have been added to the database by the user.
+                    You can access the patient data by accessing the home page. </p>
+            Note:
+            <ul>
+                <li>Routing takes you to Home which is the main route, Help (you made it!), and lastly the about page.</li>
+                <li>Each patient has data you can see, and some of it you can edit. You can always add and delete patients.</li>
+            </ul>
+
+        </div>
+
+      <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+
+
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <ng-template matStepLabel>Add New Patient</ng-template>
+        <div>
+            Steps:
+                <ol>
+                    <li>Click on the add user icon at the top right. </li>
+                    <li>Fill the form.</li>
+                    <li>Make sure all the required fields are not empty then click submit.</li>
+                </ol>
+                Note:
+                <ul>
+                    <li>First name, Last name, and contact are required fields.</li>
+                    <li>First name and Last name only accept alphanumeric characters.</li>
+                    <li>Notes, examination and exam date are optional fields.</li>
+                </ul>
+
+            </div>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+
+      <p>Congratulations, you learned how to use the features of Doctor-app!</p>
+      <img src="../../assets/images/giphy.gif"/>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button routerLink="/" mat-button (click)="stepper.reset()">Exit</button>
+      </div>
+
+
+    </mat-step>
+  </mat-horizontal-stepper>

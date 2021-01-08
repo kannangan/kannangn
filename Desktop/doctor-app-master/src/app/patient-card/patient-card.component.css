@@ -1,0 +1,15 @@
+.mat-app-background {
+    padding: 2vh;
+    display: block;
+    width: inherit;
+    height: inherit;
+
+}
+
+.notes {
+    display: block;
+}
+
+ mat-card {
+    height: 300px;
+  }
